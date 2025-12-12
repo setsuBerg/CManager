@@ -4,7 +4,7 @@ namespace CManager.Presentation.consoleApp.Interfaces;
 
 public interface ICustomerRepository
 {
-    void SaveAllCustomers(List<Customer> customers);
+    void SaveAllCustomers(List<CustomerModel> customers);
 
-    List<Customer> GetAllCustomers();
+    List<CustomerModel> GetAllCustomers();
 }
