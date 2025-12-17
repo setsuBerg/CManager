@@ -8,5 +8,8 @@ public interface ICustomerService
 
     IEnumerable<CustomerModel> GetCustomers();
 
+    CustomerModel? GetCustomerByEmail(string email);
+    bool RemoveCustomerByEmail(string email);
+
 
 }
