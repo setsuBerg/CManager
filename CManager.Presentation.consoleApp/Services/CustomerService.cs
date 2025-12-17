@@ -41,6 +41,23 @@ public class CustomerService : ICustomerService
 
     public IEnumerable<CustomerModel> GetCustomers()
     {
-        throw new NotImplementedException();
+        return _CustomerRepository.GetAllCustomers();
+    }
+
+    public CustomerModel? GetCustomerByEmail(string email) 
+    {
+        var customers = _CustomerRepository.GetAllCustomers();
+        return customers.FirstOrDefault(c => c.Email == email);
+    }
+    public bool RemoveCustomerByEmail(string email) 
+    {
+        var customers = _CustomerRepository.GetAllCustomers();
+        var customer = customers.FirstOrDefault(c => c.Email == email);
+        if (customer == null)
+            return false;
+        
+        customers.Remove(customer);
+        _CustomerRepository.SaveAllCustomers(customers);
+        return true;
     }
 }

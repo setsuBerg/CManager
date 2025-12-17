@@ -23,19 +23,19 @@ public class MenuController
             switch (input) 
             {
                 case "1":
-                    Console.WriteLine("FirstName: ");
+                    Console.Write("FirstName: ");
                     var firstName = Console.ReadLine();
-                    Console.WriteLine("LastName: ");
+                    Console.Write("LastName: ");
                     var lastName = Console.ReadLine();
-                    Console.WriteLine("Email: ");
+                    Console.Write("Email: ");
                     var email = Console.ReadLine();
-                    Console.WriteLine("PhoneNumber: ");
+                    Console.Write("PhoneNumber: ");
                     var phoneNumber = Console.ReadLine();
-                    Console.WriteLine("StreetAddress: ");
+                    Console.Write("StreetAddress: ");
                     var streetAddress = Console.ReadLine();
-                    Console.WriteLine("PostalCode: ");
+                    Console.Write("PostalCode: ");
                     var postalCode = Console.ReadLine();
-                    Console.WriteLine("City: ");
+                    Console.Write("City: ");
                     var city = Console.ReadLine();
                     _customerService.CreateCustomer(firstName, lastName, email, phoneNumber, streetAddress, postalCode, city);
                     break;
@@ -52,13 +52,17 @@ public class MenuController
                     isRunning = false;
                     break;
 
+                default : Console.WriteLine("Please enter a number from the menu.");
+                    break;
+
             }
         }
     }
 
     private static void ShowMainMenu() 
     {
-
+        Console.Clear();
+        Console.WriteLine("Customer Manager");
         Console.WriteLine("1. Add new customer");
         Console.WriteLine("2. Show all cuntomers");
         Console.WriteLine("0. Exit");
