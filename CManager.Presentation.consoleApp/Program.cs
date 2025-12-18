@@ -1,7 +1,7 @@
 ﻿using CManager.Presentation.consoleApp.Controllers;
 using CManager.Application.Interfaces;
-using CManager.Presentation.consoleApp.Repositories;
-using CManager.Presentation.consoleApp.Services;
+using CManager.Application.Repositories;
+using CManager.Application.Services;
 
 var repository = new CustomerRepository();
 var service = new CustomerService(repository);

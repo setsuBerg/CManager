@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
 
-namespace CManager.Presentation.consoleApp.Repositories;
+namespace CManager.Application.Repositories;
 
 public class CustomerRepository : ICustomerRepository
 {

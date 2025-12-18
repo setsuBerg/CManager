@@ -1,10 +1,10 @@
 ﻿using System.Linq;
 using CManager.Application.Interfaces;
 using CManager.Application.Models;
-using CManager.Presentation.consoleApp.Repositories;
+using CManager.Application.Repositories;
 using System.Reflection.Metadata.Ecma335;
 
-namespace CManager.Presentation.consoleApp.Services;
+namespace CManager.Application.Services;
 
 public class CustomerService : ICustomerService
 {
