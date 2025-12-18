@@ -1,5 +1,5 @@
 ﻿using CManager.Presentation.consoleApp.Interfaces;
-using CManager.Presentation.consoleApp.Models;
+using CManager.Application.Models;
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;

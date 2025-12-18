@@ -1,5 +1,5 @@
 ﻿using CManager.Presentation.consoleApp.Interfaces;
-using CManager.Presentation.consoleApp.Models;
+using CManager.Application.Models;
 using System.Runtime.InteropServices;
 using System.Linq;
 

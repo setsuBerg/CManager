@@ -1,4 +1,4 @@
-﻿using CManager.Presentation.consoleApp.Models;
+﻿using CManager.Application.Models;
 
 namespace CManager.Presentation.consoleApp.Interfaces;
 
