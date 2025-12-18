@@ -1,7 +1,9 @@
 ﻿using CManager.Application.Interfaces;
 using CManager.Application.Models;
-using System.Runtime.InteropServices;
+using CManager.Presentation.consoleApp.Validators;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Runtime.InteropServices;
 
 namespace CManager.Presentation.consoleApp.Controllers;
 
@@ -21,6 +23,7 @@ public class MenuController
         {
             ShowMainMenu();
             Console.Write("Select a number: ");
+            
             var input = Console.ReadLine();
 
             switch (input) 
@@ -32,16 +35,18 @@ public class MenuController
                     var lastName = (Console.ReadLine() ?? "").Trim();
 
                     string email;
-
+                    bool isValid;
                     do
                     {
                         Console.Write("Email: ");
                         email = (Console.ReadLine() ?? "").Trim();
 
-                        if (email.Any(ch => "åäöÅÄÖ".Contains(ch)))
+                        isValid = EmailValidator.IsValid(email);
+
+                        if (!isValid)
                             Console.WriteLine("Try again.");
                     }
-                    while (string.IsNullOrWhiteSpace(email) || email.Any(ch => "åäöÅÄÖ".Contains(ch)));
+                    while (!isValid);
                     
 
 
