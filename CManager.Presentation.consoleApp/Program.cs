@@ -1,5 +1,5 @@
 ﻿using CManager.Presentation.consoleApp.Controllers;
-using CManager.Presentation.consoleApp.Interfaces;
+using CManager.Application.Interfaces;
 using CManager.Presentation.consoleApp.Repositories;
 using CManager.Presentation.consoleApp.Services;
 

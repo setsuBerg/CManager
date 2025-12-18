@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using CManager.Presentation.consoleApp.Interfaces;
+using CManager.Application.Interfaces;
 using CManager.Application.Models;
 using CManager.Presentation.consoleApp.Repositories;
 using System.Reflection.Metadata.Ecma335;

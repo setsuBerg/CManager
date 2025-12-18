@@ -1,4 +1,4 @@
-﻿using CManager.Presentation.consoleApp.Interfaces;
+﻿using CManager.Application.Interfaces;
 using CManager.Application.Models;
 using System;
 using System.Collections.Generic;

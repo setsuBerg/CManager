@@ -1,6 +1,6 @@
 ﻿using CManager.Application.Models;
 
-namespace CManager.Presentation.consoleApp.Interfaces;
+namespace CManager.Application.Interfaces;
 
 public interface ICustomerRepository
 {
