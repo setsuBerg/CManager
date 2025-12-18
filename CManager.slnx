@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="CManager.Application/CManager.Application.csproj" Id="94231d6c-5c91-4ac1-8e2e-b78e49581f25" />
   <Project Path="CManager.Presentation.consoleApp/CManager.Presentation.consoleApp.csproj" />
 </Solution>
