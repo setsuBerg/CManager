@@ -32,6 +32,7 @@ public class MenuController
                     var lastName = (Console.ReadLine() ?? "").Trim();
 
                     string email;
+
                     do
                     {
                         Console.Write("Email: ");
