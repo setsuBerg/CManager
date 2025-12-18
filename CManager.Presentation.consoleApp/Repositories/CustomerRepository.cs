@@ -30,5 +30,8 @@ public class CustomerRepository : ICustomerRepository
         var json = JsonSerializer.Serialize(customers);
 
         File.WriteAllText(_filePath, json);
+
+
+        Console.WriteLine($"Saved to: {Path.GetFullPath(_filePath)}");  //check path
     }
 }

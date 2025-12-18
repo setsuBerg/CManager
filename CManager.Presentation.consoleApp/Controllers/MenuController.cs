@@ -1,4 +1,7 @@
 ﻿using CManager.Presentation.consoleApp.Interfaces;
+using CManager.Presentation.consoleApp.Models;
+using System.Runtime.InteropServices;
+using System.Linq;
 
 namespace CManager.Presentation.consoleApp.Controllers;
 
@@ -24,28 +27,89 @@ public class MenuController
             {
                 case "1":
                     Console.Write("FirstName: ");
-                    var firstName = Console.ReadLine();
+                    var firstName = (Console.ReadLine() ?? "").Trim();
                     Console.Write("LastName: ");
-                    var lastName = Console.ReadLine();
-                    Console.Write("Email: ");
-                    var email = Console.ReadLine();
+                    var lastName = (Console.ReadLine() ?? "").Trim();
+
+                    string email;
+                    do
+                    {
+                        Console.Write("Email: ");
+                        email = (Console.ReadLine() ?? "").Trim();
+
+                        if (email.Any(ch => "åäöÅÄÖ".Contains(ch)))
+                            Console.WriteLine("Try again.");
+                    }
+                    while (string.IsNullOrWhiteSpace(email) || email.Any(ch => "åäöÅÄÖ".Contains(ch)));
+                    
+
+
                     Console.Write("PhoneNumber: ");
-                    var phoneNumber = Console.ReadLine();
+                    var phoneNumber = (Console.ReadLine() ?? "").Trim();
                     Console.Write("StreetAddress: ");
-                    var streetAddress = Console.ReadLine();
+                    var streetAddress = (Console.ReadLine() ?? "").Trim();
                     Console.Write("PostalCode: ");
-                    var postalCode = Console.ReadLine();
+                    var postalCode = (Console.ReadLine() ?? "").Trim();
                     Console.Write("City: ");
-                    var city = Console.ReadLine();
-                    _customerService.CreateCustomer(firstName, lastName, email, phoneNumber, streetAddress, postalCode, city);
+                    var city = (Console.ReadLine() ?? "").Trim();
+
+                    var created = _customerService.CreateCustomer(firstName, lastName, email, phoneNumber, streetAddress, postalCode, city);
+                    
+                    Console.WriteLine(created ? "Customer added." : "Customer already exists.");
+
+                    Console.WriteLine("\nPress any key to return to menu.");
+                    Console.ReadKey();
                     break;
+
 
                 case "2":
                     var customers = _customerService.GetCustomers();
+                    if (customers == null || customers.Count() == 0) 
+                    {
+                        Console.WriteLine("No customers found.");
+                        Console.ReadKey();
+                        break;
+                    }
+           
+
                     foreach (var customer in customers) 
                     {
                         Console.WriteLine($"{customer.FirstName} {customer.LastName} {customer.Email} {customer.PhoneNumber} {customer.Address.StreetAddress} {customer.Address.PostalCode} {customer.Address.City}");
                     }
+                    Console.WriteLine("\nPress any key to return to menu.");
+                    Console.ReadKey();
+                    break;
+
+
+                case "3":
+                    Console.Write("Email: ");
+                    var emailToShow = Console.ReadLine() ?? "";
+
+                    var customerToShow = _customerService.GetCustomerByEmail(emailToShow);
+
+                    if (customerToShow == null)
+                        Console.WriteLine("The customer is not found.");
+                    else
+                        Console.WriteLine($"{customerToShow.FirstName} {customerToShow.LastName} {customerToShow.Email}");
+
+                    Console.WriteLine("\nPress any key to return to menu.");
+                    Console.ReadKey();
+                    break;
+
+
+                case "4":
+                    Console.Write("Email to delete: ");
+                    var emailToDelete = Console.ReadLine() ?? "";
+
+                    
+                    var removed = _customerService.RemoveCustomerByEmail(emailToDelete);
+                    if (removed)
+                        Console.WriteLine("Customer removed");
+                    else
+                        Console.WriteLine("The customer is not found.");
+
+                    Console.WriteLine("\nPress any key to return to menu.");
+                    Console.ReadKey();
                     break;
 
                 case "0":
@@ -54,7 +118,6 @@ public class MenuController
 
                 default : Console.WriteLine("Please enter a number from the menu.");
                     break;
-
             }
         }
     }
@@ -63,8 +126,10 @@ public class MenuController
     {
         Console.Clear();
         Console.WriteLine("Customer Manager");
-        Console.WriteLine("1. Add new customer");
-        Console.WriteLine("2. Show all cuntomers");
+        Console.WriteLine("1. Create new customer");
+        Console.WriteLine("2. Show all customers");
+        Console.WriteLine("3. Show a customer by email");
+        Console.WriteLine("4. Delete a customer by email");
         Console.WriteLine("0. Exit");
     }
 }
