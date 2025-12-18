@@ -1,6 +1,6 @@
 ﻿using System.Security.Principal;
 
-namespace CManager.Presentation.consoleApp.Models;
+namespace CManager.Application.Models;
 
 public class CustomerModel
 {

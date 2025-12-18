@@ -9,7 +9,10 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="Repositories\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CManager.Application\CManager.Application.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,12 +1,12 @@
-﻿using CManager.Presentation.consoleApp.Interfaces;
-using CManager.Presentation.consoleApp.Models;
+﻿using CManager.Application.Interfaces;
+using CManager.Application.Models;
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
 
-namespace CManager.Presentation.consoleApp.Repositories;
+namespace CManager.Application.Repositories;
 
 public class CustomerRepository : ICustomerRepository
 {
