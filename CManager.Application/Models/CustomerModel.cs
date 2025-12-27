@@ -1,6 +1,4 @@
-﻿using System.Security.Principal;
-
-namespace CManager.Application.Models;
+﻿namespace CManager.Application.Models;
 
 public class CustomerModel
 {
@@ -11,5 +9,4 @@ public class CustomerModel
     public string? PhoneNumber { get; set; }
 
     public AddressModel Address { get; set; } = new();
-    
 }

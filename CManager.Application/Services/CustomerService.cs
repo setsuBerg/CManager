@@ -1,8 +1,6 @@
 ﻿using System.Linq;
 using CManager.Application.Interfaces;
 using CManager.Application.Models;
-using CManager.Application.Repositories;
-using System.Reflection.Metadata.Ecma335;
 
 namespace CManager.Application.Services;
 
