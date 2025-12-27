@@ -1,9 +1,7 @@
 ﻿using CManager.Application.Interfaces;
 using CManager.Application.Models;
 using CManager.Presentation.consoleApp.Validators;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Runtime.InteropServices;
 
 namespace CManager.Presentation.consoleApp.Controllers;
 
@@ -80,7 +78,7 @@ public class MenuController
 
                     foreach (var customer in customers) 
                     {
-                        Console.WriteLine($"{customer.FirstName} {customer.LastName} {customer.Email} {customer.PhoneNumber} {customer.Address.StreetAddress} {customer.Address.PostalCode} {customer.Address.City}");
+                        Console.WriteLine($"{customer.Id} {customer.FirstName} {customer.LastName} {customer.Email} {customer.PhoneNumber} {customer.Address.StreetAddress} {customer.Address.PostalCode} {customer.Address.City}");
                     }
                     Console.WriteLine("\nPress any key to return to menu.");
                     Console.ReadKey();
@@ -89,14 +87,14 @@ public class MenuController
 
                 case "3":
                     Console.Write("Email: ");
-                    var emailToShow = Console.ReadLine() ?? "";
+                    var emailToShow = (Console.ReadLine() ?? "").Trim();
 
                     var customerToShow = _customerService.GetCustomerByEmail(emailToShow);
 
                     if (customerToShow == null)
                         Console.WriteLine("The customer is not found.");
                     else
-                        Console.WriteLine($"{customerToShow.FirstName} {customerToShow.LastName} {customerToShow.Email}");
+                        Console.WriteLine($"{customerToShow.Id} {customerToShow.FirstName} {customerToShow.LastName} {customerToShow.Email}");
 
                     Console.WriteLine("\nPress any key to return to menu.");
                     Console.ReadKey();
@@ -105,8 +103,7 @@ public class MenuController
 
                 case "4":
                     Console.Write("Email to delete: ");
-                    var emailToDelete = Console.ReadLine() ?? "";
-
+                    var emailToDelete = (Console.ReadLine() ?? "").Trim();
                     
                     var removed = _customerService.RemoveCustomerByEmail(emailToDelete);
                     if (removed)

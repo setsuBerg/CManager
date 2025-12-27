@@ -2,8 +2,6 @@
 using CManager.Application.Models;
 using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Text.Json;
 
 namespace CManager.Application.Repositories;
@@ -30,8 +28,5 @@ public class CustomerRepository : ICustomerRepository
         var json = JsonSerializer.Serialize(customers);
 
         File.WriteAllText(_filePath, json);
-
-
-        Console.WriteLine($"Saved to: {Path.GetFullPath(_filePath)}");  //check path
     }
 }
