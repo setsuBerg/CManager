@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="CManager.Application/CManager.Application.csproj" Id="94231d6c-5c91-4ac1-8e2e-b78e49581f25" />
   <Project Path="CManager.Presentation.consoleApp/CManager.Presentation.consoleApp.csproj" />
+  <Project Path="CManager.Presentation.GuiApp/CManager.Presentation.GuiApp.csproj" Id="2bb7bbec-c85e-463d-9b00-524fc422fd41" />
   <Project Path="CManager.Tests/CManager.Tests.csproj" Id="114ca98a-7d49-4a62-b6df-e550e501feb1" />
 </Solution>
