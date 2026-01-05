@@ -10,6 +10,7 @@ public class CustomerRepository : ICustomerRepository
 {
 
     private readonly string _filePath = "data.json";
+
     public List<CustomerModel> GetAllCustomers()
     {
 
@@ -18,8 +19,8 @@ public class CustomerRepository : ICustomerRepository
 
         var json = File.ReadAllText(_filePath);
 
-        var cutomers = JsonSerializer.Deserialize<List<CustomerModel>>(json);
-        return cutomers ?? new List<CustomerModel>();
+        var customers = JsonSerializer.Deserialize<List<CustomerModel>>(json);
+        return customers ?? new List<CustomerModel>();
 
     }
 

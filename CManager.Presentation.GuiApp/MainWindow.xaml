@@ -4,10 +4,33 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CManager.Presentation.GuiApp"
+        xmlns:viewmodels="clr-namespace:CManager.Presentation.GuiApp.ViewModels"
+        xmlns:views="clr-namespace:CManager.Presentation.GuiApp.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Background="Transparent"
+        Title="CManager" Height="770" Width="400"> <!-- 450*800 -->
 
-    </Grid>
+    <Border Background="#333333" CornerRadius="25">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="TopBar" Grid.Row="0" Background="Transparent" MouseDown="TopBar_MouseDown">
+                <Button Click="ExitButton_Click" Style="{StaticResource ExitButton}" />
+            </Grid>
+
+            <ContentControl Grid.Row="1" Content="{Binding CurrentViewModel}">
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type viewmodels:GetStartedViewModel}">
+                        <views:GetStartedView />
+                    </DataTemplate>
+                </ContentControl.Resources>
+
+            </ContentControl>
+        </Grid>
+    </Border>
 </Window>
