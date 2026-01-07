@@ -1,11 +1,25 @@
-﻿namespace CManager.Presentation.GuiApp.ViewModels;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-public class MainWindowViewModel
+namespace CManager.Presentation.GuiApp.ViewModels;
+
+public partial class MainWindowViewModel : ObservableObject
 {
-    public object CurrentViewModel { get; }
 
-    public MainWindowViewModel() 
+    private ObservableObject? _currentViewModel;
+
+    public ObservableObject CurrentViewModel 
+    {
+        get => _currentViewModel!; 
+        set => SetProperty(ref _currentViewModel, value); 
+    }
+
+    public MainWindowViewModel()
     {
         CurrentViewModel = new GetStartedViewModel(); 
+    }
+
+    public void ShowCreateCustomer()
+    {
+        CurrentViewModel = new CreateCustomerViewModel();
     }
 }

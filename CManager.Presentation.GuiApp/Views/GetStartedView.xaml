@@ -18,11 +18,8 @@
                     <Run Text="any activities yet..." />
                 </TextBlock>
                 <Button Content="Get Started"
-                        
-                        
-                        Margin="0 80 0 0"
-                    />
-
+                        Click="GetStarted_Click"
+                        Margin="0 80 0 0" />
             </StackPanel>
         </Grid>
     </Border>
