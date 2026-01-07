@@ -2,7 +2,7 @@
 
 namespace CManager.Presentation.GuiApp.ViewModels;
 
-public partial class GetStartedViewModel : ObservableObject
+public partial class CreateCustomerViewModel : ObservableObject
 {
 
 }
