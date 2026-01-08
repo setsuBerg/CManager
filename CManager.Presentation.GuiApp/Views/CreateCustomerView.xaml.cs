@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using CManager.Presentation.GuiApp.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace CManager.Presentation.GuiApp.Views
 {
@@ -21,6 +13,21 @@ namespace CManager.Presentation.GuiApp.Views
         public CreateCustomerView()
         {
             InitializeComponent();
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            if (System.Windows.Application.Current.MainWindow?.DataContext is MainWindowViewModel mainViewModel) 
+            {
+                mainViewModel.ShowGetStarted();
+            }
+        }
+        private void Create_Click(object sender, RoutedEventArgs e)
+        {
+            var firstName = FirstNameInput.Text;
+            MessageBox.Show($"First name: {firstName}");
+
+            MessageBox.Show("Customer created!");
         }
     }
 }
