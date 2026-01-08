@@ -22,4 +22,8 @@ public partial class MainWindowViewModel : ObservableObject
     {
         CurrentViewModel = new CreateCustomerViewModel();
     }
+    public void ShowGetStarted()
+    {
+        CurrentViewModel = new GetStartedViewModel();
+    }
 }
