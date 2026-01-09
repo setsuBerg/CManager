@@ -13,9 +13,9 @@
             <StackPanel VerticalAlignment="Center">
                
                 <TextBlock>
-                    <Run Text="You haven't added" />
+                    <Run Text="No cunstomers registered yet..." />
                     <LineBreak />
-                    <Run Text="any activities yet..." />
+                    <Run Text="Let's create one!" />
                 </TextBlock>
                 <Button Content="Get Started"
                         Click="GetStarted_Click"

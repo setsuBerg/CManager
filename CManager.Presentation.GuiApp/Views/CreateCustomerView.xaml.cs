@@ -25,9 +25,7 @@ namespace CManager.Presentation.GuiApp.Views
         private void Create_Click(object sender, RoutedEventArgs e)
         {
             var firstName = FirstNameInput.Text;
-            MessageBox.Show($"First name: {firstName}");
-
-            MessageBox.Show("Customer created!");
+            ResultTextMessage.Text = $"Customer \"{firstName}\" created!";
         }
     }
 }
