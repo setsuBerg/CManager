@@ -10,7 +10,7 @@ interfaces, a repository and basic SOLID principles.
 
 CManager is a console application that allows the user to manage customers stored in a JSON file.
 
---- The application supports ---
+The application supports::
 creating customers,
 viewing all customers,
 viewing a specific customer by email
